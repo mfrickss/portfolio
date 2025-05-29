@@ -9,12 +9,12 @@ import { useMediaQuery } from "react-responsive";
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
   return (
-    <section className="flex items-start justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space">
+    <section className="flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space">
       <HeroText />
       <ParallexBackground />
       <figure
         className="absolute inset-0"
-        style={{ width: "100vh", height: "100vh" }}
+        style={{ width: "100vw", height: "100vh" }}
       >
         <Canvas camera={{ position: [0, 1, 3] }}>
           <Astronaut
