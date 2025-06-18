@@ -1,42 +1,54 @@
 import React, { useState } from "react";
 import { motion } from "motion/react"; // NÃO SEI PQ TA ERRADO MAS TA FUNCIONANDO!!
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../translations/translations";
+import LanguageToggle from "../components/LanguageToggle";
+
 function Navigation() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <ul className="nav-ul">
       <li className="nav-li">
         <a className="nav-link" href="#home">
-          Home
+          {t.nav.home}
         </a>
       </li>
       <li className="nav-li">
         <a className="nav-link" href="#about">
-          About
+          {t.nav.about}
         </a>
       </li>
       <li className="nav-li">
         <a className="nav-link" href="#work">
-          Work
+          {t.nav.work}
         </a>
       </li>
       <li className="nav-li">
         <a className="nav-link" href="#contact">
-          Contact
+          {t.nav.contact}
         </a>
+      </li>
+      <li className="nav-li ml-2">
+        <LanguageToggle />
       </li>
     </ul>
   );
 }
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
+    <div className="fixed inset-x-0 top-0 z-20 w-full backdrop-blur-lg bg-primary/40">
       <div className="mx-auto c-space max-w-7xl">
         <div className="flex items-center justify-between py-2 sm:py-0">
           <a
             className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
             href=""
           >
-            Ricardo Camargo
+            MFRICKS
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -48,7 +60,7 @@ const Navbar = () => {
               alt="toggle"
             ></img>
           </button>
-          <nav className="hidden sm:flex">
+          <nav className="hidden sm:flex w-full justify-end">
             <Navigation />
           </nav>
         </div>
