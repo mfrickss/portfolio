@@ -36,7 +36,7 @@ const Navbar = () => {
             className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
             href=""
           >
-            Ricardo
+            Ricardo Camargo
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
