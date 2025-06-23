@@ -3,6 +3,7 @@ import Hero from "./sections/Hero";
 import About from "./sections/About";
 import { SmoothCursor } from "./components/Cursor";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import Projects from "./sections/Projects";
 
 const App = () => {
   return (
@@ -12,11 +13,11 @@ const App = () => {
         <Navbar />
         <Hero />
         <About />
+        <Projects />
         <section className="min-h-screen" />
         <section className="min-h-screen" />
-        <section className="min-h-screen" />
-        {/* {projects}
-        {experience}
+
+        {/*{experience}
         {testimonial}
         {contact}
         {footer} */}
