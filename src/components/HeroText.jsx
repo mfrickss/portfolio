@@ -10,8 +10,8 @@ const HeroText = () => {
 
   const words =
     language === "pt"
-      ? ["Seguras", "Modernas", "Escaláveis"]
-      : ["Secure", "Modern", "Scalable"];
+      ? ["Websites", "APIs REST", "Sistemas Web"]
+      : ["Websites", "REST APIs", "Web Systems"];
 
   const variants = {
     hidden: { opacity: 0, x: -50 },
@@ -39,8 +39,8 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            {t.hero.developer} <br />
-            {t.hero.dedicated}
+            {t.hero.subtitle} <br />
+            {t.hero.building}
           </motion.p>
           <motion.div
             variants={variants}
@@ -60,7 +60,7 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1.8 }}
           >
-            {t.hero.solutions}
+            {t.hero.closing}
           </motion.p>
         </div>
       </div>
@@ -75,16 +75,25 @@ const HeroText = () => {
         >
           {t.hero.title}
         </motion.p>
+        <motion.p
+          className="text-5xl font-medium text-neutral-300"
+          variants={variants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 1.1 }}
+        >
+          {t.hero.subtitle}
+        </motion.p>
+        <motion.p
+          className="text-5xl font-medium text-neutral-300"
+          variants={variants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 1.15 }}
+        >
+          {t.hero.building}
+        </motion.p>
         <div>
-          <motion.p
-            className="text-5xl font-black text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.2 }}
-          >
-            {t.hero.building}
-          </motion.p>
           <motion.div
             variants={variants}
             initial="hidden"
@@ -103,7 +112,7 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1.8 }}
           >
-            {t.hero.applications}
+            {t.hero.closing}
           </motion.p>
         </div>
       </div>

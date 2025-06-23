@@ -9,29 +9,24 @@ export const translations = {
     hero: {
       title: "Olá, eu sou Ricardo",
       subtitle: "Desenvolvedor Full Stack",
-      description: "Criando experiências digitais incríveis",
-      developer: "Um Desenvolvedor",
-      dedicated: "Dedicado a Criar",
-      solutions: "Soluções Web",
       building: "Construindo",
-      applications: "Aplicações Web",
+      closing: "Inovadores",
     },
     about: {
       title: "Sobre Mim",
-      description: "Desenvolvedor apaixonado por criar soluções inovadoras",
       greeting: "Olá, eu sou Ricardo Camargo",
       journey:
-        "Ao longo da minha jornada como estudante de Análise e Desenvolvimento de Sistemas, dominei tecnologias frontend e backend para criar soluções web inovadoras e aplicações interativas.",
+        "Desenvolvedor Full Stack com experiência prática em C#, PHP e JavaScript. Atualmente cursando Tecnólogo em ADS na Universidade Positivo, com foco em APIs REST, desenvolvimento web moderno e boas práticas de programação. Busco sempre aplicar tecnologias atuais para criar soluções eficientes.",
       codeCraft: "CODE IS CRAFT",
       designPatterns: "Design Patterns",
       designPrinciples: "Design Principles",
-      timeZone: "Time Zone",
+      timeZone: "Where I Code",
       location:
-        "Moro em Curitiba, mas estou aberto à trabalhos remotos em todo o mundo",
-      projectTogether: "Quer começar um projeto juntos?",
+        "Desenvolvendo de Curitiba, Brasil. Disponível para projetos remotos e colaborações globais.",
+      projectTogether: "Vamos desenvolver algo incrível juntos?",
       myStack: "Minha Stack",
       stackDescription:
-        "Me especializo em uma variedade de linguagens, frameworks e ferramentas que me permitem construir aplicações robustas e escaláveis",
+        "Trabalho com tecnologias modernas tanto no frontend quanto no backend, desenvolvendo desde APIs REST com .NET e Entity Framework até interfaces responsivas com React e JavaScript.",
     },
   },
   en: {
@@ -42,31 +37,26 @@ export const translations = {
       contact: "Contact",
     },
     hero: {
-      title: "Hello, I'm",
+      title: "Hello, I'm Ricardo",
       subtitle: "Full Stack Developer",
-      description: "Creating amazing digital experiences",
-      developer: "A Developer",
-      dedicated: "Dedicated to Crafting",
-      solutions: "Web Solutions",
       building: "Building",
-      applications: "Web Applications",
+      closing: "That Innovate",
     },
     about: {
       title: "About Me",
-      description: "Passionate developer creating innovative solutions",
       greeting: "Hi, I'm Ricardo Camargo",
       journey:
-        "Throughout my journey as a Systems Analysis and Development student, I've mastered frontend and backend technologies to create innovative web solutions and interactive applications.",
+        "Full Stack Developer with hands-on experience in C#, PHP, and JavaScript. Currently pursuing a Technology degree in Systems Analysis and Development at Universidade Positivo, focusing on REST APIs, modern web development, and programming best practices. I'm always eager to leverage cutting-edge technologies to build efficient solutions.",
       codeCraft: "CODE IS CRAFT",
       designPatterns: "Design Patterns",
       designPrinciples: "Design Principles",
-      timeZone: "Time Zone",
+      timeZone: "Where I Code",
       location:
-        "I'm based in Curitiba, Brazil, and open to remote work worldwide",
+        "Coding from Curitiba, Brazil. Available for remote projects and global collaborations",
       projectTogether: "Do you want to start a project together?",
       myStack: "My Stack",
       stackDescription:
-        "I Specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable applications",
+        "I work with modern technologies on both frontend and backend, developing everything from REST APIs with .NET and Entity Framework to responsive interfaces with React and JavaScript.",
     },
   },
 };
