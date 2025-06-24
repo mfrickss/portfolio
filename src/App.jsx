@@ -5,6 +5,7 @@ import { SmoothCursor } from "./components/Cursor";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Projects from "./sections/Projects";
 import Experiences from "./sections/Experiences";
+import Testimonial from "./sections/Testimonial";
 
 const App = () => {
   return (
@@ -16,10 +17,9 @@ const App = () => {
         <About />
         <Projects />
         <Experiences />
-        <section className="min-h-screen" />
+        <Testimonial />
         <section className="min-h-screen" />
 
-        {/* testimonial*/}
         {/* contact*/}
         {/* footer} */}
       </div>

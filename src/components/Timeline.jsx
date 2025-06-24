@@ -1,6 +1,4 @@
-"use client";
 import { useScroll, useTransform, motion } from "motion/react";
-import { p } from "motion/react-client";
 import React, { useEffect, useRef, useState } from "react";
 
 export const Timeline = ({ data }) => {
@@ -24,7 +22,7 @@ export const Timeline = ({ data }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div className="c-space section-spacing" ref={containerRef}>
+    <div className="c-space mb-20" ref={containerRef}>
       <h2 className="text-heading">My experiences</h2>
       <div ref={ref} className="relative pb-20">
         {data.map((item, index) => (
