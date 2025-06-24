@@ -1,4 +1,3 @@
-import React from "react";
 import { FlipWords } from "./FlipWords";
 import { motion } from "motion/react";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -21,7 +20,7 @@ const HeroText = () => {
   return (
     <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text">
       {/*Desktop view */}
-      <div className="flex-col hidden md:flex c-space">
+      <div className="flex-col mt-28 hidden md:flex c-space">
         <motion.h1
           className="text-4xl font-medium"
           variants={variants}

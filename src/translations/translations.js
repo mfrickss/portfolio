@@ -22,7 +22,7 @@ export const translations = {
       designPrinciples: "Design Principles",
       timeZone: "Where I Code",
       location:
-        "Desenvolvendo de Curitiba, Brasil. Disponível para projetos remotos e colaborações globais.",
+        "Desenvolvendo de Curitiba, Brasil. Disponível também para projetos remotos e colaborações globais.",
       projectTogether: "Vamos desenvolver algo incrível juntos?",
       myStack: "Minha Stack",
       stackDescription:
@@ -52,7 +52,7 @@ export const translations = {
       designPrinciples: "Design Principles",
       timeZone: "Where I Code",
       location:
-        "Coding from Curitiba, Brazil. Available for remote projects and global collaborations",
+        "Coding from Curitiba, Brazil. Available for remote projects and global collaborations.",
       projectTogether: "Do you want to start a project together?",
       myStack: "My Stack",
       stackDescription:

@@ -4,6 +4,7 @@ import About from "./sections/About";
 import { SmoothCursor } from "./components/Cursor";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Projects from "./sections/Projects";
+import Experiences from "./sections/Experiences";
 
 const App = () => {
   return (
@@ -14,13 +15,13 @@ const App = () => {
         <Hero />
         <About />
         <Projects />
+        <Experiences />
         <section className="min-h-screen" />
         <section className="min-h-screen" />
 
-        {/*{experience}
-        {testimonial}
-        {contact}
-        {footer} */}
+        {/* testimonial*/}
+        {/* contact*/}
+        {/* footer} */}
       </div>
     </LanguageProvider>
   );

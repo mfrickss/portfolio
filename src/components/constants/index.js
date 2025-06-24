@@ -132,6 +132,17 @@ export const mySocials = [
 
 export const experiences = [
   {
+    title: "Auxiliar de Loja Aprendiz",
+    job: "Farmácias Nissei",
+    date: "Outubro 2021 – Fevereiro 2022",
+    contents: [
+      "Desenvolvimento de habilidades de comunicação e resolução de problemas em um ambiente de atendimento direto, garantindo clareza e satisfação do cliente.",
+      "Gestão completa de setor específico, incluindo organização e controle de estoque.",
+      "Execução de atividades operacionais diversas, demonstrando versatilidade e adaptabilidade.",
+    ],
+  },
+
+  {
     title: "Auxiliar de Escritório",
     job: "Izabel Cristina Pinheiro Cerqueira",
     date: "Março 2022 – Junho 2025",
@@ -140,16 +151,6 @@ export const experiences = [
       "Coordenação e rastreamento de operações logísticas, garantindo eficiência no transporte.",
       "Verificação e controle de seguros para mercadorias, assegurando conformidade regulatória.",
       "Utilização e análise de sistemas de software para controle logístico, identificando e sugerindo melhorias para otimização dos fluxos de trabalho.",
-    ],
-  },
-  {
-    title: "Auxiliar de Loja Aprendiz",
-    job: "Farmácias Nissei",
-    date: "Outubro 2021 – Fevereiro 2022",
-    contents: [
-      "Desenvolvimento de habilidades de comunicação e resolução de problemas em um ambiente de atendimento direto, garantindo clareza e satisfação do cliente.",
-      "Gestão completa de setor específico, incluindo organização e controle de estoque.",
-      "Execução de atividades operacionais diversas, demonstrando versatilidade e adaptabilidade.",
     ],
   },
   {
