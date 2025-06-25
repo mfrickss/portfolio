@@ -3,7 +3,7 @@ export const translations = {
     nav: {
       home: "Início",
       about: "Sobre",
-      work: "Trabalhos",
+      work: "Projetos",
       contact: "Contato",
     },
     hero: {
@@ -108,9 +108,9 @@ export const translations = {
       ],
     },
     contact: {
-      title: "Vamos conversar",
+      title: "Fale comigo",
       description:
-        "Seja para construir um novo website, melhorar sua plataforma existente ou dar vida a um projeto único, estou aqui para ajudar",
+        "Tem uma ideia ou um projeto em mente? Vamos conversar! Estou disponível para transformar seus conceitos em realidade, seja criando um novo site, otimizando sua plataforma atual ou desenvolvendo uma solução única.",
       fullName: "Nome completo",
       email: "Email",
       message: "Mensagem",
@@ -162,15 +162,15 @@ export const translations = {
     },
     buttons: {
       contact: "Entrar em contato",
-      copy: "Copiar",
-      copied: "Copiado!",
+      copy: "Copiar e-mail",
+      copied: "E-mail copiado!",
     },
   },
   en: {
     nav: {
       home: "Home",
       about: "About",
-      work: "Work",
+      work: "Projects",
       contact: "Contact",
     },
     hero: {
@@ -329,8 +329,8 @@ export const translations = {
     },
     buttons: {
       contact: "Contact me",
-      copy: "Copy",
-      copied: "Copied!",
+      copy: "Copy e-mail",
+      copied: "E-mail copied!",
     },
   },
 };
