@@ -1,10 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { Marquee } from "../components/Marquee";
-import { reviews } from "../components/constants";
-import { div } from "motion/react-client";
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../translations/translations";
 
 const ReviewCard = ({ img, name, username, body }) => {
   return (
@@ -34,9 +31,22 @@ const ReviewCard = ({ img, name, username, body }) => {
 };
 
 export default function Testimonial() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  // Combinar dados dos reviews com traduções
+  const reviews = t.reviews.items.map((item) => ({
+    ...item,
+    // Usar o username para gerar a URL da imagem (removendo o @)
+    img: `https://robohash.org/${item.username.replace("@", "")}`,
+  }));
+
+  const firstRow = reviews.slice(0, reviews.length / 2);
+  const secondRow = reviews.slice(reviews.length / 2);
+
   return (
     <div className="items-start mt-25 md:mt-35 c-space">
-      <h2 className="text-heading">Hear from my clients</h2>
+      <h2 className="text-heading">{t.reviews.title}</h2>
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden mt-12">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review) => (

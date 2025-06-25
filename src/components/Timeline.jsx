@@ -1,7 +1,12 @@
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../translations/translations";
 
 export const Timeline = ({ data }) => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const ref = useRef(null);
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -23,7 +28,7 @@ export const Timeline = ({ data }) => {
 
   return (
     <div className="c-space mb-20" ref={containerRef}>
-      <h2 className="text-heading">My experiences</h2>
+      <h2 className="text-heading">{t.experiences.title}</h2>
       <div ref={ref} className="relative pb-20">
         {data.map((item, index) => (
           <div

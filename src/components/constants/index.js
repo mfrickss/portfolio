@@ -12,27 +12,27 @@ export const myProjects = [
     ],
     href: "https://github.com/ricardocamargo", // Substitua pelo link real
     logo: "",
-    image: "../assets/projects/shingeki-api.png",
+    image: "assets/projects/shingeki-api.png",
     tags: [
       {
         id: 1,
         name: "C#",
-        path: "/assets/logos/csharp.svg",
+        path: "assets/logos/csharp.svg",
       },
       {
         id: 2,
         name: ".NET 8",
-        path: "/assets/logos/dotnet.svg",
+        path: "assets/logos/dotnet.svg",
       },
       {
         id: 3,
         name: "Entity Framework",
-        path: "/assets/logos/efcore.png",
+        path: "assets/logos/efcore.png",
       },
       {
         id: 4,
         name: "SQLite",
-        path: "/assets/logos/sqlite.svg",
+        path: "assets/logos/sqlite.svg",
       },
     ],
   },
@@ -49,27 +49,27 @@ export const myProjects = [
     ],
     href: "https://github.com/ricardocamargo", // Substitua pelo link real
     logo: "",
-    image: "/assets/projects/sportconnect.png",
+    image: "assets/projects/sportconnect.png",
     tags: [
       {
         id: 1,
         name: "PHP",
-        path: "/assets/logos/php.svg",
+        path: "assets/logos/php.svg",
       },
       {
         id: 2,
         name: "MySQL",
-        path: "/assets/logos/mysql.svg",
+        path: "assets/logos/mysql.svg",
       },
       {
         id: 3,
         name: "Bootstrap",
-        path: "/assets/logos/bootstrap.svg",
+        path: "assets/logos/bootstrap.svg",
       },
       {
         id: 4,
         name: "JavaScript",
-        path: "/assets/logos/javascript.svg",
+        path: "assets/logos/javascript.svg",
       },
     ],
   },
@@ -86,27 +86,27 @@ export const myProjects = [
     ],
     href: "https://github.com/ricardocamargo", // Substitua pelo link real
     logo: "",
-    image: "/assets/projects/dessert-delight.png",
+    image: "assets/projects/dessert-delight.png",
     tags: [
       {
         id: 1,
         name: "HTML5",
-        path: "/assets/logos/html5.svg",
+        path: "assets/logos/html5.svg",
       },
       {
         id: 2,
         name: "CSS3",
-        path: "/assets/logos/css3.svg",
+        path: "assets/logos/css3.svg",
       },
       {
         id: 3,
         name: "JavaScript",
-        path: "/assets/logos/javascript.svg",
+        path: "assets/logos/javascript.svg",
       },
       {
         id: 4,
         name: "Responsive",
-        path: "/assets/logos/responsive.png",
+        path: "assets/logos/responsive.png",
       },
     ],
   },
@@ -116,17 +116,17 @@ export const mySocials = [
   {
     name: "WhatsApp",
     href: "https://wa.me/5541988386211",
-    icon: "/assets/socials/whatsApp.svg",
+    icon: "assets/socials/whatsApp.svg",
   },
   {
     name: "GitHub",
-    href: "https://github.com/ricardocamargo", // Substitua pelo link real
-    icon: "/assets/socials/github.svg",
+    href: "https://github.com/mfrickss",
+    icon: "assets/socials/github.svg",
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/ricardocamargo", // Substitua pelo link real
-    icon: "/assets/socials/linkedIn.svg",
+    href: "https://www.linkedin.com/in/mfricks/",
+    icon: "assets/socials/linkedIn.svg",
   },
 ];
 

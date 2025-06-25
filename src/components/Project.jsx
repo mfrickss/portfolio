@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../translations/translations";
 import ProjectDetails from "./ProjectDetails";
 
 const Project = ({
@@ -9,8 +11,12 @@ const Project = ({
   image,
   tags,
   setPreview,
+  language,
 }) => {
+  const { language: contextLanguage } = useLanguage();
+  const t = translations[contextLanguage || language];
   const [isHidden, setIsHidden] = useState(false);
+
   return (
     <>
       <div
@@ -30,7 +36,7 @@ const Project = ({
           onClick={() => setIsHidden(true)}
           className="flex items-center gap-1 cursor-pointer hover-animation"
         >
-          Read More
+          {t.projects.seeMore}
           <img src="assets/arrow-right.svg" className="w-5" alt="" />
         </button>
       </div>
@@ -44,6 +50,7 @@ const Project = ({
           tags={tags}
           href={href}
           closeModal={() => setIsHidden(false)}
+          language={contextLanguage || language}
         />
       )}
     </>

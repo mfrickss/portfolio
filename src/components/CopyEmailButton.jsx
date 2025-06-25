@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { ConfettiButton } from "./confetti";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../translations/translations";
 
 const CopyEmailButton = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const [copied, setCopied] = useState(false);
   const email = "ricardocamargodev@gmail.com";
 
@@ -36,7 +40,7 @@ const CopyEmailButton = () => {
           className="w-5"
           alt={copied ? "copied icon" : "copy icon"}
         />
-        {copied ? "Email Copied!" : "Copy Email Address"}
+        {copied ? t.buttons.copied : t.buttons.copy}
       </span>
     </ConfettiButton>
   );

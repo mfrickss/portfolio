@@ -6,6 +6,8 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Projects from "./sections/Projects";
 import Experiences from "./sections/Experiences";
 import Testimonial from "./sections/Testimonial";
+import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
 
 const App = () => {
   return (
@@ -18,10 +20,8 @@ const App = () => {
         <Projects />
         <Experiences />
         <Testimonial />
-        <section className="min-h-screen" />
-
-        {/* contact*/}
-        {/* footer} */}
+        <Contact />
+        <Footer />
       </div>
     </LanguageProvider>
   );
