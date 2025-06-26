@@ -8,12 +8,24 @@ import Experiences from "./sections/Experiences";
 import Testimonial from "./sections/Testimonial";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setShowCursor(window.innerWidth > 768);
+    };
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   return (
     <LanguageProvider>
       <div className="container mx-auto max-w-8xl">
-        <SmoothCursor />
+        {showCursor && <SmoothCursor />}
         <Navbar />
         <Hero />
         <About />

@@ -25,7 +25,7 @@ const Projects = () => {
       title: t.projects.items[0].title,
       description: t.projects.items[0].description,
       subDescription: t.projects.items[0].subDescription,
-      href: "https://github.com/ricardocamargo",
+      href: "https://github.com/mfrickss/ShingekiAPI",
       logo: "",
       image: "assets/projects/shingeki-api.png",
       tags: [
@@ -56,7 +56,7 @@ const Projects = () => {
       title: t.projects.items[1].title,
       description: t.projects.items[1].description,
       subDescription: t.projects.items[1].subDescription,
-      href: "https://github.com/ricardocamargo",
+      href: "https://github.com/marcoantoniofranco/SportConnect-Curitiba",
       logo: "",
       image: "assets/projects/sportconnect.png",
       tags: [
@@ -87,7 +87,7 @@ const Projects = () => {
       title: t.projects.items[2].title,
       description: t.projects.items[2].description,
       subDescription: t.projects.items[2].subDescription,
-      href: "https://github.com/ricardocamargo",
+      href: "https://github.com/mfrickss/Dessert-Delight",
       logo: "",
       image: "assets/projects/dessert-delight.png",
       tags: [
