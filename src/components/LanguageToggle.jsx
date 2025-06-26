@@ -13,7 +13,7 @@ const LanguageToggle = () => {
       title={language === "pt" ? "Mudar para Inglês" : "Switch to Portuguese"}
     >
       <img
-        src={language === "pt" ? "assets/uk.svg" : "assets/brasil.svg"}
+        src={language === "pt" ? "assets/brasil.svg" : "assets/uk.svg"}
         alt={language === "pt" ? "Mudar para Inglês" : "Switch to Portuguese"}
         className="w-6 h-6"
         style={{ display: "inline", verticalAlign: "middle" }}

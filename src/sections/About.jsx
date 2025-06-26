@@ -1,10 +1,10 @@
 import Card from "../components/Card";
 import { useRef } from "react";
-import { Globe } from "../components/Globe";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
 import { useLanguage } from "../contexts/LanguageContext";
 import { translations } from "../translations/translations";
+import { Meteors } from "../components/Meteors";
 
 const About = () => {
   const grid2Container = useRef();
@@ -85,12 +85,12 @@ const About = () => {
         </div>
         {/* Grid 3 */}
         <div className="grid-black-color grid-3">
-          <div className="z-10 w-[50%]">
+          <div className="z-10 w-[50%] mt-15">
             <p className="headtext">{t.about.timeZone}</p>
             <p className="subtext">{t.about.location}</p>
           </div>
-          <figure className="absolute left-[30%] top-[10%]">
-            <Globe />
+          <figure className="absolute left-[0%] top-[0%]">
+            <Meteors />
           </figure>
         </div>{" "}
         {/* Grid 4 */}

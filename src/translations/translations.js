@@ -110,7 +110,7 @@ export const translations = {
     contact: {
       title: "Fale comigo",
       description:
-        "Tem uma ideia ou um projeto em mente? Vamos conversar! Estou disponível para transformar seus conceitos em realidade, seja criando um novo site, otimizando sua plataforma atual ou desenvolvendo uma solução única.",
+        "Para oportunidades profissionais, projetos inovadores ou colaborações, vamos conversar sobre como minhas competências podem impulsionar os resultados da sua organização.",
       fullName: "Nome completo",
       email: "Email",
       message: "Mensagem",
@@ -277,7 +277,7 @@ export const translations = {
     contact: {
       title: "Let's talk",
       description:
-        "Whether you're looking to build a new website, improve your existing platform, or bring a unique project to life, I'm here to help",
+        "Always open to new challenges and professional connections. Let's connect to discuss how my skillset can help your organization achieve its goals.",
       fullName: "Full name",
       email: "Email",
       message: "Message",
