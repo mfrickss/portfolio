@@ -32,15 +32,13 @@ const Project = ({
             ))}
           </div>
         </div>
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => setIsHidden(true)}
           className="flex items-center gap-1 cursor-pointer hover-animation"
         >
           {t.projects.seeMore}
           <img src="assets/arrow-right.svg" className="w-5" alt="" />
-        </a>
+        </button>
       </div>
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
       {isHidden && (

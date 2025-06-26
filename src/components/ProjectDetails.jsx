@@ -52,9 +52,9 @@ const ProjectDetails = ({
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation"
+              className="inline-flex items-center gap-2 font-semibold cursor-pointer px-4 py-2 rounded-lg bg-royal text-white shadow-lg hover:bg-indigo transition"
             >
-              {t.projects.seeMore}{" "}
+              {language === "pt" ? "Ver no GitHub" : "View on GitHub"}
               <img src="assets/arrow-up.svg" className="size-4" />
             </a>
           </div>
