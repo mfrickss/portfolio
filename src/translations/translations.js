@@ -120,7 +120,7 @@ export const translations = {
       errorMessage: "Algo deu errado!",
       placeholders: {
         name: "Peter Parker",
-        email: "spidey@gmail.com",
+        email: "notspiderman@gmail.com",
         message: "Compartilhe suas ideias...",
       },
     },

@@ -12,7 +12,7 @@ const About = () => {
   const t = translations[language];
 
   return (
-    <section className="c-space section-spacing">
+    <section id="about" className="c-space section-spacing">
       <h2 className="text-heading">{t.about.title}</h2>
       <div
         className="grid grid-cols-1 gap-4 md:grid-cols-6
