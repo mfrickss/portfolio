@@ -54,6 +54,9 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+html {
+  scroll-padding-top: 56px;
+}
 
 .c-space {
   @apply sm:px-10 px-5 lg:px-15;
