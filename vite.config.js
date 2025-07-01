@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/portfolio/",
   build: {
-    outDir: "dist",
+    outDir: "docs",
     assetsDir: "assets",
     sourcemap: false,
     rollupOptions: {
