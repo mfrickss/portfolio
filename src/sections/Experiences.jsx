@@ -8,12 +8,7 @@ function Experiences() {
 
   // Combinar dados das experiências com traduções
   const experiences = [
-    {
-      title: t.experiences.items[0].title,
-      job: t.experiences.items[0].job,
-      date: t.experiences.items[0].date,
-      contents: t.experiences.items[0].contents,
-    },
+
     {
       title: t.experiences.items[1].title,
       job: t.experiences.items[1].job,

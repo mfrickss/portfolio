@@ -49,10 +49,9 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
           scale: 2,
           position: "absolute",
         }}
-        className={twMerge("z-10 inline-block relative text-left", className)}
+        className={twMerge("z-10 block relative text-center", className)}
         key={currentWord}
       >
-        {/* edit suggested by Sajal: https://x.com/DewanganSajal */}
         {currentWord.split(" ").map((word, wordIndex) => (
           <motion.span
             key={word + wordIndex}
@@ -62,7 +61,7 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
               delay: wordIndex * 0.3,
               duration: 0.3,
             }}
-            className="inline-block whitespace-nowrap"
+            className="block text-center md:inline md:text-left whitespace-nowrap"
           >
             {word.split("").map((letter, letterIndex) => (
               <motion.span
@@ -78,7 +77,6 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
                 {letter}
               </motion.span>
             ))}
-            <span className="inline-block">&nbsp;</span>
           </motion.span>
         ))}
       </motion.div>

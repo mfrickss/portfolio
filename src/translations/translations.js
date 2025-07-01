@@ -88,10 +88,10 @@ export const translations = {
           job: "Izabel Cristina Pinheiro Cerqueira",
           date: "Março 2022 – Junho 2025",
           contents: [
-            "Emissão de documentos fiscais eletrônicos (CTe, NFs) e manifestos de transporte.",
-            "Coordenação e rastreamento de operações logísticas, garantindo eficiência no transporte.",
-            "Verificação e controle de seguros para mercadorias, assegurando conformidade regulatória.",
-            "Utilização e análise de sistemas de software para controle logístico, identificando e sugerindo melhorias para otimização dos fluxos de trabalho.",
+            "Analisei e implementei melhorias nos sistemas de controle logístico, resultando em redução significativa no tempo de processamento de documentos fiscais.",
+            "Fui responsável pela emissão de mais de 1000 CTes e NFs mensais, mantendo a precisão e conformidade regulatória.",
+            "Desenvolvi processo de verificação de seguros que eliminou a maioria dos casos de não-conformidade, evitando potenciais multas regulatórias.",
+            "Coordenei operações de transporte para mais de 200 entregas mensais, alcançando alta pontualidade nas entregas.",
           ],
         },
         {
@@ -183,7 +183,7 @@ export const translations = {
       title: "About Me",
       greeting: "Hi, I'm Ricardo Camargo",
       journey:
-        "Full Stack Developer with hands-on experience in C#, PHP, and JavaScript. Currently pursuing a Technology degree in Systems Analysis and Development at Universidade Positivo, focusing on REST APIs, modern web development, and programming best practices. I'm always eager to leverage cutting-edge technologies to build efficient solutions.",
+        "Developer with experience in C#, PHP, and JavaScript. Currently pursuing a Technology degree in Systems Analysis and Development at Universidade Positivo, focusing on REST APIs, modern web development, and programming best practices. I'm always eager to leverage cutting-edge technologies to build efficient solutions.",
       codeCraft: "CODE IS CRAFT",
       designPatterns: "Design Patterns",
       designPrinciples: "Design Principles",
