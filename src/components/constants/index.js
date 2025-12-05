@@ -156,12 +156,23 @@ export const experiences = [
   {
     title: "Desenvolvedor Full Stack",
     job: "Projetos Pessoais e Acadêmicos",
-    date: "2024 – Presente",
+    date: "2024 – 2025",
     contents: [
       "Desenvolvimento de aplicações web utilizando C#, PHP e JavaScript.",
       "Criação de APIs REST com .NET e Entity Framework para gerenciamento de dados.",
       "Desenvolvimento de interfaces responsivas com React e JavaScript.",
       "Foco na aplicação de tecnologias modernas e boas práticas de desenvolvimento.",
+    ],
+  },
+  {
+    title: "Desenvolvedor Full Stack",
+    job: "Estágiario na Procuradoria Geral do Paraná",
+    date: "2025 – Presente",
+    contents: [
+      "Desenvolvimento de soluções Full Stack modernas utilizando Python (FastAPI) no backend e React no frontend.",
+      "Criação de robôs de automação e Web Scrapers de alta complexidade com N8N e Selenium.",
+      "Implementação de Agentes de IA para otimização de processos de negócio.",
+      "Gerenciamento de infraestrutura e deploy utilizando Docker.",
     ],
   },
 ];

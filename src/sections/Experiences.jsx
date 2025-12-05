@@ -21,6 +21,12 @@ function Experiences() {
       date: t.experiences.items[2].date,
       contents: t.experiences.items[2].contents,
     },
+    {
+      title: t.experiences.items[3].title,
+      job: t.experiences.items[3].job,
+      date: t.experiences.items[3].date,
+      contents: t.experiences.items[3].contents,
+    },
   ];
 
   return (

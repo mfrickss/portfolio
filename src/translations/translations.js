@@ -8,15 +8,14 @@ export const translations = {
     },
     hero: {
       title: "Olá, eu sou Ricardo",
-      subtitle: "Desenvolvedor Full Stack",
-      building: "Construindo",
-      closing: "Inovadores",
+      subtitle: "Desenvolvedor FullStack",
+      building: "Construindo o futuro com",
     },
     about: {
       title: "Sobre Mim",
       greeting: "Olá, eu sou Ricardo Camargo",
       journey:
-        "Desenvolvedor Full Stack com experiência prática em C#, PHP e JavaScript. Atualmente cursando Tecnólogo em ADS na Universidade Positivo, com foco em APIs REST, desenvolvimento web moderno e boas práticas de programação. Busco sempre aplicar tecnologias atuais para criar soluções eficientes.",
+        "Desenvolvedor Full Stack com vivência prática em projetos e estágio. Graduando em Análise e Desenvolvimento de Sistemas pela Universidade Positivo, atuo na intersecção entre engenharia de software e otimização de processos. Meu objetivo é construir arquiteturas digitais sólidas que resolvem problemas reais de negócio com eficiência e elegância.",
       codeCraft: "CODE IS CRAFT",
       designPatterns: "Design Patterns",
       designPrinciples: "Design Principles",
@@ -26,7 +25,7 @@ export const translations = {
       projectTogether: "Vamos desenvolver algo incrível juntos?",
       myStack: "Minha Stack",
       stackDescription:
-        "Trabalho com tecnologias modernas tanto no frontend quanto no backend, desenvolvendo desde APIs REST com .NET e Entity Framework até interfaces responsivas com React e JavaScript.",
+        "Utilizo Python (FastAPI) e bancos de dados PostgreSQL e mySQL para criar sistemas rápidos e seguros. Nas automações de dados, utilizo n8n, AppScript e Selenium. No Frontend, desenvolvo interfaces interativas com React, utilizando Docker para gerenciar a aplicação.",
     },
     projects: {
       title: "Projetos",
@@ -97,12 +96,23 @@ export const translations = {
         {
           title: "Desenvolvedor Full Stack",
           job: "Projetos Pessoais e Acadêmicos",
-          date: "2024 – Presente",
+          date: "2024 – 2025",
           contents: [
             "Desenvolvimento de aplicações web utilizando C#, PHP e JavaScript.",
             "Criação de APIs REST com .NET e Entity Framework para gerenciamento de dados.",
             "Desenvolvimento de interfaces responsivas com React e JavaScript.",
             "Foco na aplicação de tecnologias modernas e boas práticas de desenvolvimento.",
+          ],
+        },
+        {
+          title: "Desenvolvedor Full Stack & Automações",
+          job: "Estágiario na Procuradoria Geral do Paraná",
+          date: "2025 – Presente",
+          contents: [
+            "Desenvolvimento de sitemas web utilizando Python(FastAPI) e React.",
+            "Criação de robôs de automação e Web Scrapers de alta complexidade com N8N e Selenium.",
+            "Implementação de Agentes de IA para otimização de processos de negócio",
+            "Gerenciamento de infraestrutura e deploy utilizando Docker.",
           ],
         },
       ],
@@ -175,15 +185,14 @@ export const translations = {
     },
     hero: {
       title: "Hello, I'm Ricardo",
-      subtitle: "Full Stack Developer",
-      building: "Building",
-      closing: "That Innovate",
+      subtitle: "A FullStack Developer",
+      building: "Building the future with",
     },
     about: {
       title: "About Me",
       greeting: "Hi, I'm Ricardo Camargo",
       journey:
-        "Developer with experience in C#, PHP, and JavaScript. Currently pursuing a Technology degree in Systems Analysis and Development at Universidade Positivo, focusing on REST APIs, modern web development, and programming best practices. I'm always eager to leverage cutting-edge technologies to build efficient solutions.",
+        "Full Stack Developer with practical background in real-world projects. Currently pursuing a degree in Systems Analysis and Development at Universidade Positivo, I work at the intersection of software engineering and process optimization. My goal is to build solid digital architectures that solve real business problems with efficiency and elegance.",
       codeCraft: "CODE IS CRAFT",
       designPatterns: "Design Patterns",
       designPrinciples: "Design Principles",
@@ -193,7 +202,7 @@ export const translations = {
       projectTogether: "Do you want to start a project together?",
       myStack: "My Stack",
       stackDescription:
-        "I work with modern technologies on both frontend and backend, developing everything from REST APIs with .NET and Entity Framework to responsive interfaces with React and JavaScript.",
+        "I use Python (FastAPI) along with PostgreSQL and mySQL databases to build fast and secure systems. For data automation, I use n8n, AppScript and Selenium. On the Frontend, I develop interactive interfaces with React, using Docker to manage the application.",
     },
     projects: {
       title: "Projects",
@@ -264,13 +273,24 @@ export const translations = {
         {
           title: "Full Stack Developer",
           job: "Personal and Academic Projects",
-          date: "2024 – Present",
+          date: "2024 – 2025",
           contents: [
             "Development of web applications using C#, PHP, and JavaScript.",
             "Creation of REST APIs with .NET and Entity Framework for data management.",
             "Development of responsive interfaces with React and JavaScript.",
             "Focus on applying modern technologies and best development practices.",
           ],
+        },
+        {
+          title: "Full Stack Developer & Automation",
+          job: "Intern at Procuradoria Geral do Estado do Paraná",
+          date: "2025 – Presente",
+          contents: [
+            "Development of web systems using Python (FastAPI) and React.",
+            "Creation of complex automation bots and Web Scrapers using n8n and Selenium.",
+            "Implementation of AI Agents for business process optimization.",
+            "Infrastructure management and deployment using Docker.",
+        ],
         },
       ],
     },
@@ -287,7 +307,7 @@ export const translations = {
       errorMessage: "Something went wrong!",
       placeholders: {
         name: "Peter Parker",
-        email: "spidey@gmail.com",
+        email: "notspiderman@gmail.com",
         message: "Share your thoughts...",
       },
     },

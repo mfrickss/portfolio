@@ -9,8 +9,8 @@ const HeroText = () => {
 
   const words =
     language === "pt"
-      ? ["Websites", "APIs REST", "Sistemas Web"]
-      : ["Websites", "REST APIs", "Web Systems"];
+      ? ["Python", "React", "N8N", "FastAPIs"]
+      : ["Python", "React", "N8N"];
 
   const variants = {
     hidden: { opacity: 0, x: -50 },
@@ -18,7 +18,7 @@ const HeroText = () => {
   };
 
   return (
-    <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text">
+    <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text relative">
       {/*Desktop view */}
       <div className="flex-col mt-28 hidden md:flex c-space">
         <motion.h1
