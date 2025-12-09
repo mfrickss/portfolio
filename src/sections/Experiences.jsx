@@ -30,7 +30,7 @@ function Experiences() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full py-20 overflow-hidden">
       <Timeline data={experiences} />
     </div>
   );

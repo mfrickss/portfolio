@@ -13,14 +13,14 @@ export function Marquee({
     <div
       {...props}
       className={twMerge(
-        `group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)] ${
+        `group flex overflow-hidden p-5 [--duration:90s] [--gap:1rem] [gap:var(--gap)] ${
           vertical ? "flex-col" : "flex-row"
         }`,
         className
       )}
     >
       {Array(repeat)
-        .fill(0)
+        .fill(10)
         .map((_, i) => (
           <div
             key={i}
