@@ -20,16 +20,17 @@ Desenvolvedor com experiência prática em **C#**, **PHP** e **JavaScript**, atu
 
 **Backend:**
 
-- C# (.NET 8)
-- PHP
-- Entity Framework Core
-- APIs REST
+- Python
+- FastAPI
+- n8n
+- Selenium
 
 **Ferramentas:**
 
 - Git & GitHub
-- Visual Studio Code
-- MySQL & SQLite
+- PostgreSQL
+- MySQL
+- SQLite
 
 ### 🎯 Projetos em Destaque
 
