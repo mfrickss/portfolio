@@ -25,7 +25,7 @@ Desenvolvedor com experiência prática em **C#**, **PHP** e **JavaScript**, atu
 - n8n
 - Selenium
 
-**Ferramentas:**
+**Outras Ferramentas:**
 
 - Git & GitHub
 - PostgreSQL
