@@ -1,46 +1,32 @@
+import { assetUrl } from "../lib/assets";
 import { mySocials } from "../components/constants";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/language";
 import { translations } from "../translations/translations";
 
 const Footer = () => {
   const { language } = useLanguage();
-  const t = translations[language];
-
-  // Atualizar os caminhos das imagens dos socials
-  const updatedSocials = mySocials.map((social) => ({
-    ...social,
-    icon: social.icon.replace("/assets/", "assets/"),
-  }));
+  const t = translations[language].footer;
 
   return (
-    <section className="flex flex-wrap items-center justify-between gap-5 pb-3 text-sm text-neutral-400 c-space">
-      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
-      <div className="flex gap-2">
-        <p>{language === "pt" ? "Termos & Condições" : "Terms & Conditions"}</p>
-        <p>|</p>
-        <p>
-          {language === "pt" ? "Política de Privacidade" : "Privacy Policy"}
-        </p>
+    <footer className="c-space pb-6 text-sm text-neutral-400">
+      <div className="flex flex-col gap-5 border-t border-white/10 pt-6 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p className="font-medium text-neutral-200">Ricardo Camargo</p>
+          <p className="mt-1 text-xs">© {new Date().getFullYear()}. {t.copyright}</p>
+        </div>
+        <nav aria-label={t.socials} className="flex flex-wrap gap-x-4 gap-y-1">
+          {mySocials.map((social) => (
+            <a href={social.href} key={social.name} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lavender">
+              <img src={assetUrl(social.icon)} className="size-4" width="16" height="16" alt="" />
+              {social.name}
+            </a>
+          ))}
+        </nav>
+        <a href="#home" className="inline-flex min-h-11 w-fit items-center gap-2 rounded-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lavender">
+          {t.backToTop}<span aria-hidden="true">↑</span>
+        </a>
       </div>
-      <div className="flex gap-3">
-        {updatedSocials.map((social, index) => (
-          <a
-            href={social.href}
-            key={index}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={social.icon} className="w-5 h-5" alt={social.name} />
-          </a>
-        ))}
-      </div>
-      <p>
-        © 2025 Ricardo.{" "}
-        {language === "pt"
-          ? "Todos os direitos reservados."
-          : "All rights reserved."}
-      </p>
-    </section>
+    </footer>
   );
 };
 
