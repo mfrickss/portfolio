@@ -14,7 +14,7 @@ export function OrbitingCircles({
 }) {
   const calculatedDuration = duration / speed;
   return (
-    <>
+    <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
       {path && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ export function OrbitingCircles({
         return (
           <div
             style={{
-              "--duration": calculatedDuration,
+              "--duration": `${calculatedDuration}s`,
               "--radius": radius,
               "--angle": angle,
               "--icon-size": `${iconSize}px`,
@@ -52,6 +52,6 @@ export function OrbitingCircles({
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
