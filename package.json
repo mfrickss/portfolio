@@ -1,33 +1,37 @@
 {
-  "name": "potfolio",
+  "name": "portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --configLoader native",
+    "build": "vite build --configLoader native",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "test": "node --test tests/*.test.mjs",
+    "preview": "vite preview",
+    "test:ui": "playwright test --config=tests/ui/playwright.config.mjs",
+    "media:thumbnails": "node scripts/generate-project-thumbnails.mjs",
+    "media:export": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/export-project-media.ps1",
+    "media:optimize": "node scripts/optimize-site-media.mjs",
+    "check:budget": "node scripts/check-performance-budget.mjs",
+    "check": "npm run lint && npm test && npm run build && npm run check:budget"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
-    "@tailwindcss/vite": "^4.1.8",
     "canvas-confetti": "^1.9.3",
-    "clsx": "^2.1.1",
-    "cobe": "^0.6.4",
     "maath": "^0.10.8",
     "motion": "^12.16.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-responsive": "^10.0.1",
     "tailwind-merge": "^3.3.0",
-    "tailwindcss": "^4.1.8",
     "three": "^0.176.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@playwright/test": "^1.64.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
@@ -35,6 +39,13 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
-    "vite": "^6.3.5"
+    "sharp": "^0.35.5",
+    "vite": "^6.3.5",
+    "@tailwindcss/vite": "^4.1.8",
+    "tailwindcss": "^4.1.8",
+    "eslint-plugin-react": "^7.37.5"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
