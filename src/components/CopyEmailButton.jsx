@@ -1,49 +1,35 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ConfettiButton } from "./confetti";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/language";
 import { translations } from "../translations/translations";
+import { assetUrl } from "../lib/assets";
 
-const CopyEmailButton = () => {
+export default function CopyEmailButton() {
   const { language } = useLanguage();
-  const t = translations[language];
-  const [copied, setCopied] = useState(false);
+  const t = translations[language].buttons;
+  const [status, setStatus] = useState("idle");
+  const timer = useRef(null);
   const email = "ricardocamargodev@gmail.com";
-
-  const handleCopy = async () => {
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+  async function copy() {
+    window.clearTimeout(timer.current);
     try {
       await navigator.clipboard.writeText(email);
-      setCopied(true);
-      console.log("Email copied! State set to true.");
-      setTimeout(() => {
-        setCopied(false);
-        console.log("State set to false after timeout.");
-      }, 2000);
-    } catch (error) {
-      console.error("Failed to copy email:", error);
+      setStatus("copied");
+      timer.current = window.setTimeout(() => setStatus("idle"), 2000);
+      return true;
+    } catch {
+      setStatus("error");
+      return false;
     }
-  };
-
+  }
   return (
-    <ConfettiButton
-      onClick={handleCopy}
-      options={{
-        spread: 360,
-        startVelocity: 20,
-        elementCount: 70,
-        decay: 0.95,
-      }}
-      className="relative px-1 py-4 text-sm font-light rounded-full w-[12rem] bg-primary hover:bg-primary/90"
-    >
-      <span className="flex items-center justify-center gap-2">
-        <img
-          src={copied ? "assets/copy-done.svg" : "assets/copy.svg"}
-          className="w-5"
-          alt={copied ? "copied icon" : "copy icon"}
-        />
-        {copied ? t.buttons.copied : t.buttons.copy}
-      </span>
-    </ConfettiButton>
+    <div className="text-center">
+      <ConfettiButton onClick={copy} options={{ spread: 360, startVelocity: 20, particleCount: 70, decay: 0.95 }} className="relative px-1 py-4 text-sm font-light rounded-full w-[12rem] bg-primary hover:bg-primary/90">
+        <span className="flex items-center justify-center gap-2"><img src={assetUrl(status === "copied" ? "assets/copy-done.svg" : "assets/copy.svg")} className="w-5" alt="" />{status === "copied" ? t.copied : t.copy}</span>
+      </ConfettiButton>
+      <span className="sr-only" role="status" aria-live="polite">{status === "copied" ? t.copied : status === "error" ? t.copyError : ""}</span>
+      {status === "error" ? <p className="mt-3 text-sm text-white">{t.copyError}<br /><a className="underline break-all" href={`mailto:${email}`}>{email}</a></p> : null}
+    </div>
   );
-};
-
-export default CopyEmailButton;
+}

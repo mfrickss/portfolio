@@ -1,132 +1,30 @@
-"use client";
+import { twMerge } from "tailwind-merge";
 
-import confetti from "canvas-confetti";
-import React, {
-  createContext,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-} from "react";
-
-import { Button } from "./ui/button";
-
-const ConfettiContext = createContext({});
-
-// Define component first
-const ConfettiComponent = forwardRef((props, ref) => {
-  const {
-    options,
-    globalOptions = { resize: true, useWorker: true },
-    manualstart = false,
-    children,
-    ...rest
-  } = props;
-  const instanceRef = useRef(null);
-
-  const canvasRef = useCallback(
-    (node) => {
-      if (node !== null) {
-        if (instanceRef.current) return;
-        instanceRef.current = confetti.create(node, {
-          ...globalOptions,
-          resize: true,
-        });
-      } else {
-        if (instanceRef.current) {
-          instanceRef.current.reset();
-          instanceRef.current = null;
-        }
-      }
-    },
-    [globalOptions]
-  );
-
-  const fire = useCallback(
-    async (opts = {}) => {
-      try {
-        await instanceRef.current?.({ ...options, ...opts });
-      } catch (error) {
-        console.error("Confetti error:", error);
-      }
-    },
-    [options]
-  );
-
-  const api = useMemo(
-    () => ({
-      fire,
-    }),
-    [fire]
-  );
-
-  useImperativeHandle(ref, () => api, [api]);
-
-  useEffect(() => {
-    if (!manualstart) {
-      (async () => {
-        try {
-          await fire();
-        } catch (error) {
-          console.error("Confetti effect error:", error);
-        }
-      })();
-    }
-  }, [manualstart, fire]);
-
-  return (
-    <ConfettiContext.Provider value={api}>
-      <canvas ref={canvasRef} {...rest} />
-      {children}
-    </ConfettiContext.Provider>
-  );
-});
-
-// Set display name immediately
-ConfettiComponent.displayName = "Confetti";
-
-// Export as Confetti
-export const Confetti = ConfettiComponent;
-
-const ConfettiButtonComponent = ({ options, children, onClick, ...props }) => {
-  const handleClick = async (event) => {
+export function ConfettiButton({ options, children, onClick, className, ...props }) {
+  async function handleClick(event) {
     try {
-      // Capture as coordenadas ANTES de qualquer await ou setState
+      // Capture the origin before the click handler can render again.
       const rect = event.currentTarget.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-
-      // Chame o onClick do usuário (pode alterar o estado e causar re-render)
-      let result;
-      if (onClick) {
-        result = onClick(event);
-        if (result && typeof result.then === "function") {
-          await result;
-        }
-      }
-
-      // Agora dispare o confetti usando as coordenadas já capturadas
-      await confetti({
-        ...options,
-        origin: {
-          x: x / window.innerWidth,
-          y: y / window.innerHeight,
-        },
-      });
+      const origin = {
+        x: (rect.left + rect.width / 2) / window.innerWidth,
+        y: (rect.top + rect.height / 2) / window.innerHeight,
+      };
+      const success = await onClick?.(event);
+      if (success === false) return;
+      const { default: confetti } = await import("canvas-confetti");
+      await confetti({ ...options, origin, disableForReducedMotion: false });
     } catch (error) {
       console.error("Confetti button error:", error);
     }
-  };
+  }
 
   return (
-    <Button onClick={handleClick} {...props}>
+    <button {...props} onClick={handleClick}
+      className={twMerge(
+        "inline-flex min-h-11 items-center justify-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-50 shadow transition-colors hover:bg-zinc-900/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lavender disabled:pointer-events-none disabled:opacity-50",
+        className,
+      )}>
       {children}
-    </Button>
+    </button>
   );
-};
-
-ConfettiButtonComponent.displayName = "ConfettiButton";
-
-export const ConfettiButton = ConfettiButtonComponent;
+}
