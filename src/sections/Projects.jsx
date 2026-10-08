@@ -1,140 +1,76 @@
-import { useState } from "react";
-import { twMerge } from "tailwind-merge";
-import { Marquee } from "../components/Marquee";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useRef, useState } from "react";
+import { useLanguage } from "../contexts/language";
 import { translations } from "../translations/translations";
+import { myProjects, projectThumbnailWidths } from "../components/constants";
 import ProjectDetails from "../components/ProjectDetails";
+import ProjectImage from "../components/ProjectImage";
 
-const ProjectCard = ({ title, image, tags, onClick }) => {
+import { assetUrl } from "../lib/assets";
+// c-space padding, grid gaps and card padding determine the rendered cover width.
+const cardImageSizes = "(min-width: 1536px) 422px, (min-width: 1280px) 337px, (min-width: 1024px) 406px, (min-width: 768px) 298px, (min-width: 640px) 526px, calc(100vw - 74px)";
+
+function ProjectCard({ project, labels, onOpen }) {
   return (
-    <figure
-      onClick={onClick}
-      className={twMerge(
-        "relative h-100 w-130 cursor-pointer overflow-hidden rounded-2xl border p-4",
-        "border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm", 
-        "hover:border-primary/50 transition-all duration-300 group/card hover:-translate-y-2" 
-      )}
-    >
-      {/* Imagem do Projeto */}
-      <div className="h-65 w-full overflow-hidden rounded-xl bg-black/50">
-        <img
-          src={image}
-          alt={title}
-          className="h-full w-full object-cover opacity-80 transition-opacity duration-300 group-hover/card:opacity-100 group-hover/card:scale-105 transition-transform duration-700"
-        />
+    <article className="group/card row-span-5 grid min-w-0 grid-rows-subgrid gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 p-4 transition-all duration-300 hover:-translate-y-2 hover:border-lavender/40">
+      <div className="relative aspect-video overflow-hidden rounded-xl bg-black/40">
+        <ProjectImage src={assetUrl(`${project.cardImage}-768.webp`)}
+          srcSet={projectThumbnailWidths.map((width) => `${assetUrl(`${project.cardImage}-${width}.webp`)} ${width}w`).join(", ")}
+          sizes={cardImageSizes} alt={project.imageAlt} width={768} height={432}
+          loading="lazy" unavailableLabel={labels.imageUnavailable}
+          className={`h-full w-full ${project.imageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover/card:scale-105`} />
       </div>
-
-      {/* Título e Tech Stack */}
-      <div className="mt-8 flex flex-col gap-2">
-        <figcaption className="text-lg font-bold text-white">
-          {title}
-        </figcaption>
-        
-        {/* Lista horizontal de ícones das tecnologias */}
-        <div className="flex gap-2">
-          {tags.map((tag) => (
-            <div key={tag.id} className="rounded-full bg-white/10 p-2.5 backdrop-blur-md" title={tag.name}>
-              <img src={tag.path} alt={tag.name} className="h-5 w-5" />
-            </div>
+      <h3 className="self-start text-xl leading-snug font-bold text-balance text-white">{project.title}</h3>
+      <p className="self-start text-sm leading-relaxed text-pretty text-neutral-300">{project.description}</p>
+      <ul aria-label={labels.technologies} className="flex flex-wrap content-start items-start gap-2">
+          {project.tags.map((tag) => (
+            <li key={tag.id} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs leading-4 text-neutral-300">{tag.name}</li>
           ))}
-        </div>
+      </ul>
+      <div className="flex items-end pt-2">
+        <button type="button" onClick={(event) => onOpen(project.key, event.currentTarget)}
+          aria-label={`${labels.viewDetails}: ${project.title}`}
+          className="inline-flex min-h-9 items-center justify-center rounded-full border border-lavender/30 bg-lavender/10 px-4 py-1.5 text-xs font-medium text-violet-200 hover:bg-lavender/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lavender">
+          {labels.viewDetails}
+        </button>
       </div>
-      
-      {/* Efeito de brilho no hover */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/20 via-transparent to-[#7a57db] opacity-10 transition-opacity duration-900 group-hover/card:opacity-50" />
-    </figure>
+    </article>
   );
-};
+}
 
-export default function Testimonial() {
+export default function Projects() {
   const { language } = useLanguage();
-  const t = translations[language];
-  
-  // Estado para controlar o Modal
-  const [selectedProject, setSelectedProject] = useState(null);
+  const labels = (translations[language] || translations.pt).projects;
+  const [selectedProjectKey, setSelectedProjectKey] = useState(null);
+  const openerRef = useRef(null);
 
-  // Recriando a lista de projetos (Mesma lógica do Projects.jsx para manter consistência)
-  const myProjects = [
-    {
-      id: 1,
-      title: t.projects.items[0].title,
-      description: t.projects.items[0].description,
-      subDescription: t.projects.items[0].subDescription,
-      href: "https://github.com/mfrickss/ShingekiAPI",
-      logo: "",
-      image: "assets/projects/shingeki-api.png",
-      tags: [
-        { id: 1, name: "C#", path: "assets/logos/csharp-plain-logo.svg" }, 
-        { id: 2, name: ".NET 8", path: "assets/logos/dotnetcore-original-logo.svg" },
-        { id: 3, name: "Entity Framework", path: "assets/logos/entityframeworkcore-plain.svg" },
-        { id: 4, name: "SQLite", path: "assets/logos/sqlite.svg" },
-      ],
-    },
-    {
-      id: 2,
-      title: t.projects.items[1].title,
-      description: t.projects.items[1].description,
-      subDescription: t.projects.items[1].subDescription,
-      href: "https://github.com/marcoantoniofranco/SportConnect-Curitiba",
-      logo: "",
-      image: "assets/projects/sportconnect.png",
-      tags: [
-        { id: 1, name: "PHP", path: "assets/logos/php-original-logo.svg" },
-        { id: 2, name: "MySQL", path: "assets/logos/mysql.svg" },
-        { id: 3, name: "Bootstrap", path: "assets/logos/bootstrap-original-wordmark-logo.svg" },
-        { id: 4, name: "JavaScript", path: "assets/logos/javascript.svg" },
-      ],
-    },
-    {
-      id: 3,
-      title: t.projects.items[2].title,
-      description: t.projects.items[2].description,
-      subDescription: t.projects.items[2].subDescription,
-      href: "https://github.com/mfrickss/Dessert-Delight",
-      logo: "",
-      image: "assets/projects/dessert-delight.png",
-      tags: [
-        { id: 1, name: "HTML5", path: "assets/logos/html5.svg" },
-        { id: 2, name: "CSS3", path: "assets/logos/css3.svg" },
-        { id: 3, name: "JavaScript", path: "assets/logos/javascript.svg" },
-        { id: 4, name: "Responsive", path: "assets/logos/responsive.png" },
-      ],
-    },
-  ];
+  // Keep only identity in state; visible copy follows the current language.
+  const projectsList = myProjects.map((metadata) => ({
+    ...metadata,
+    ...labels.items[metadata.key],
+    image: assetUrl(metadata.image),
+    badge: metadata.badgeKey ? labels.badges[metadata.badgeKey] : null,
+  }));
+  const selectedProject = projectsList.find((project) => project.key === selectedProjectKey);
 
-  const marqueeList = [...myProjects, ...myProjects]; 
+  function openProject(key, opener) {
+    openerRef.current = opener;
+    setSelectedProjectKey(key);
+  }
 
   return (
-    <section className="c-space py-20 overflow-hidden">
-      <h2 className="text-heading mb-12">{language === 'pt' ? 'Meus Projetos' : 'My Projects'}</h2>
-
-      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-        
-        {/* Marquee Principal */}
-        <Marquee pauseOnHover className="[--duration:30s]">
-          {marqueeList.map((project, index) => (
-            <ProjectCard 
-              // Usando index na key porque duplicamos os projetos
-              key={`${project.id}-${index}`} 
-              {...project} 
-              onClick={() => setSelectedProject(project)}
-            />
-          ))}
-        </Marquee>
-
-        {/* Degradê lateral para suavizar a entrada/saída (Fade edges) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#030412] z-10"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#030412] z-10"></div>
-      </div>
-
-      {/* Modal de Detalhes */}
-      {selectedProject && (
-        <ProjectDetails
-          {...selectedProject}
-          closeModal={() => setSelectedProject(null)}
-          language={language}
-        />
-      )}
+    <section id="work" className="c-space py-20">
+      <h2 className="text-heading mb-12">{labels.title}</h2>
+      <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {projectsList.map((project) => (
+          <li key={project.key} className="row-span-5 grid min-w-0 grid-rows-subgrid">
+            <ProjectCard project={project} labels={labels} onOpen={openProject} />
+          </li>
+        ))}
+      </ul>
+      {selectedProject ? (
+        <ProjectDetails key={selectedProject.key} project={selectedProject}
+          closeModal={() => setSelectedProjectKey(null)} openerRef={openerRef} />
+      ) : null}
     </section>
   );
 }

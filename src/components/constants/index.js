@@ -1,116 +1,210 @@
 export const myProjects = [
   {
-    id: 1,
-    title: "ShingekiAPI",
-    description:
-      "API REST completa com operações CRUD para gerenciamento de dados, utilizando Minimal APIs e integração frontend-backend.",
-    subDescription: [
-      "Desenvolvi uma API REST completa com operações CRUD para gerenciamento de dados, utilizando Minimal APIs.",
-      "Implementei a integração entre frontend (JavaScript) e o backend em C#.",
-      "Utilizei Entity Framework Core para mapeamento objeto-relacional e persistência de dados em SQLite.",
-      "Aplicação das melhores práticas de desenvolvimento de APIs REST.",
-    ],
-    href: "https://github.com/ricardocamargo", // Substitua pelo link real
-    logo: "",
-    image: "assets/projects/shingeki-api.png",
-    tags: [
+    "id": 1,
+    "key": "weatherDashboard",
+    "cardImage": "assets/projects/thumbnails/weatherDashboard",
+    "githubUrl": "https://github.com/mfrickss/GlobalWeatherDashboard",
+    "deployUrl": "https://global-weather-dashboard-cyan.vercel.app/",
+    "image": "assets/projects/globalWeather.png",
+    "imageWidth": 1901,
+    "imageHeight": 911,
+    "imageFit": "cover",
+    "badgeKey": null,
+    "isCaseStudy": false,
+    "tags": [
       {
-        id: 1,
-        name: "C#",
-        path: "assets/logos/csharp.svg",
+        "id": "next",
+        "name": "Next.js"
       },
       {
-        id: 2,
-        name: ".NET 8",
-        path: "assets/logos/dotnet.svg",
+        "id": "react",
+        "name": "React"
       },
       {
-        id: 3,
-        name: "Entity Framework",
-        path: "assets/logos/efcore.png",
+        "id": "node",
+        "name": "Node.js"
       },
       {
-        id: 4,
-        name: "SQLite",
-        path: "assets/logos/sqlite.svg",
+        "id": "express",
+        "name": "Express"
       },
-    ],
+      {
+        "id": "ts",
+        "name": "TypeScript"
+      },
+      {
+        "id": "tailwind",
+        "name": "Tailwind CSS"
+      },
+      {
+        "id": "vitest",
+        "name": "Vitest"
+      },
+      {
+        "id": "biome",
+        "name": "Biome"
+      }
+    ]
   },
   {
-    id: 2,
-    title: "SportConnect Curitiba",
-    description:
-      "Sistema web para conectar atletas com foco no perfil de usuário e páginas públicas, seguindo padrão MVC.",
-    subDescription: [
-      "Criei módulos-chave de um sistema web para conectar atletas, focando no perfil de usuário e páginas públicas.",
-      "Implementei o back-end das funcionalidades com PHP, seguindo o padrão MVC.",
-      "Garanti a segurança da aplicação com a implementação de tokens anti-CSRF e gerenciamento de sessões/cookies.",
-      "Interface responsiva desenvolvida com Bootstrap para melhor experiência do usuário.",
-    ],
-    href: "https://github.com/ricardocamargo", // Substitua pelo link real
-    logo: "",
-    image: "assets/projects/sportconnect.png",
-    tags: [
+    "id": 2,
+    "key": "stockManager",
+    "cardImage": "assets/projects/thumbnails/stockManager",
+    "githubUrl": "https://github.com/mfrickss/stockmanager",
+    "deployUrl": "https://stockmanager-navy-ten.vercel.app/login/?next=/",
+    "image": "assets/projects/stockmanager.png",
+    "imageWidth": 1897,
+    "imageHeight": 906,
+    "imageFit": "cover",
+    "badgeKey": null,
+    "isCaseStudy": false,
+    "tags": [
       {
-        id: 1,
-        name: "PHP",
-        path: "assets/logos/php.svg",
+        "id": "python",
+        "name": "Python"
       },
       {
-        id: 2,
-        name: "MySQL",
-        path: "assets/logos/mysql.svg",
+        "id": "django",
+        "name": "Django"
       },
       {
-        id: 3,
-        name: "Bootstrap",
-        path: "assets/logos/bootstrap.svg",
+        "id": "mysql",
+        "name": "MySQL"
       },
       {
-        id: 4,
-        name: "JavaScript",
-        path: "assets/logos/javascript.svg",
+        "id": "pytest",
+        "name": "pytest"
       },
-    ],
+      {
+        "id": "js",
+        "name": "JavaScript"
+      }
+    ]
   },
   {
-    id: 3,
-    title: "Dessert Delight",
-    description:
-      "Website institucional completo e responsivo desenvolvido como projeto acadêmico com foco em mobile-first.",
-    subDescription: [
-      "Desenvolvi um website institucional completo como parte de um projeto acadêmico.",
-      "Criei uma interface de usuário totalmente responsiva (mobile-first) e interativa com JavaScript.",
-      "Implementei design moderno e funcional utilizando HTML5 e CSS3.",
-      "Foco na experiência do usuário e acessibilidade em diferentes dispositivos.",
-    ],
-    href: "https://github.com/ricardocamargo", // Substitua pelo link real
-    logo: "",
-    image: "assets/projects/dessert-delight.png",
-    tags: [
+    "id": 3,
+    "key": "botGastos",
+    "cardImage": "assets/projects/thumbnails/botGastos",
+    "githubUrl": "https://github.com/mfrickss/n8n_bot_gastos",
+    "deployUrl": null,
+    "image": "assets/projects/bot-n8n.png",
+    "imageWidth": 1897,
+    "imageHeight": 829,
+    "imageFit": "contain",
+    "badgeKey": null,
+    "isCaseStudy": false,
+    "tags": [
       {
-        id: 1,
-        name: "HTML5",
-        path: "assets/logos/html5.svg",
+        "id": "n8n",
+        "name": "n8n"
       },
       {
-        id: 2,
-        name: "CSS3",
-        path: "assets/logos/css3.svg",
+        "id": "gemini",
+        "name": "Google Gemini"
       },
       {
-        id: 3,
-        name: "JavaScript",
-        path: "assets/logos/javascript.svg",
+        "id": "telegram",
+        "name": "Telegram"
       },
       {
-        id: 4,
-        name: "Responsive",
-        path: "assets/logos/responsive.png",
+        "id": "sheets",
+        "name": "Google Sheets"
       },
-    ],
+      {
+        "id": "postgres",
+        "name": "PostgreSQL"
+      },
+      {
+        "id": "docker",
+        "name": "Docker"
+      }
+    ]
   },
+  {
+    "id": 4,
+    "key": "proajuCleaner",
+    "cardImage": "assets/projects/thumbnails/proajuCleaner",
+    "githubUrl": null,
+    "deployUrl": null,
+    "image": "assets/projects/Proaju-CDACleaner.png",
+    "imageWidth": 2789,
+    "imageHeight": 1799,
+    "imageFit": "contain",
+    "badgeKey": "internalProject",
+    "isCaseStudy": true,
+    "tags": [
+      {
+        "id": "python",
+        "name": "Python"
+      },
+      {
+        "id": "fastapi",
+        "name": "FastAPI"
+      },
+      {
+        "id": "docker",
+        "name": "Docker"
+      },
+      {
+        "id": "selenium",
+        "name": "Selenium"
+      },
+      {
+        "id": "n8n",
+        "name": "n8n"
+      },
+      {
+        "id": "notion",
+        "name": "Notion"
+      },
+      {
+        "id": "postgres",
+        "name": "PostgreSQL"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "key": "mittyTattu",
+    "cardImage": "assets/projects/thumbnails/mittyTattu",
+    "githubUrl": null,
+    "deployUrl": "https://mitty-psi.vercel.app/",
+    "image": "assets/projects/mitty.png",
+    "imageWidth": 1912,
+    "imageHeight": 991,
+    "imageFit": "cover",
+    "badgeKey": "privateRepository",
+    "isCaseStudy": false,
+    "tags": [
+      {
+        "id": "next",
+        "name": "Next.js"
+      },
+      {
+        "id": "react",
+        "name": "React"
+      },
+      {
+        "id": "supabase",
+        "name": "Supabase"
+      },
+      {
+        "id": "r3f",
+        "name": "React Three Fiber"
+      },
+      {
+        "id": "three",
+        "name": "Three.js"
+      },
+      {
+        "id": "actions",
+        "name": "GitHub Actions"
+      }
+    ]
+  }
 ];
+
+export const projectThumbnailWidths = [384, 768, 1152];
 
 export const mySocials = [
   {
@@ -130,88 +224,70 @@ export const mySocials = [
   },
 ];
 
-export const experiences = [
+// Adição de constantes declarativas para os pilares e logos da seção About
+export const engineeringPillars = [
   {
-    title: "Auxiliar de Loja Aprendiz",
-    job: "Farmácias Nissei",
-    date: "Outubro 2021 – Fevereiro 2022",
-    contents: [
-      "Desenvolvimento de habilidades de comunicação e resolução de problemas em um ambiente de atendimento direto, garantindo clareza e satisfação do cliente.",
-      "Gestão completa de setor específico, incluindo organização e controle de estoque.",
-      "Execução de atividades operacionais diversas, demonstrando versatilidade e adaptabilidade.",
-    ],
-  },
-
-  {
-    title: "Auxiliar de Escritório",
-    job: "Izabel Cristina Pinheiro Cerqueira",
-    date: "Março 2022 – Junho 2025",
-    contents: [
-      "Emissão de documentos fiscais eletrônicos (CTe, NFs) e manifestos de transporte.",
-      "Coordenação e rastreamento de operações logísticas, garantindo eficiência no transporte.",
-      "Verificação e controle de seguros para mercadorias, assegurando conformidade regulatória.",
-      "Utilização e análise de sistemas de software para controle logístico, identificando e sugerindo melhorias para otimização dos fluxos de trabalho.",
-    ],
+    id: "solid",
+    key: "solid",
+    style: { rotate: "-20deg", top: "18%", left: "8%" },
   },
   {
-    title: "Desenvolvedor Full Stack",
-    job: "Projetos Pessoais e Acadêmicos",
-    date: "2024 – 2025",
-    contents: [
-      "Desenvolvimento de aplicações web utilizando C#, PHP e JavaScript.",
-      "Criação de APIs REST com .NET e Entity Framework para gerenciamento de dados.",
-      "Desenvolvimento de interfaces responsivas com React e JavaScript.",
-      "Foco na aplicação de tecnologias modernas e boas práticas de desenvolvimento.",
-    ],
+    id: "cleanArch",
+    key: "cleanArch",
+    style: { rotate: "15deg", top: "22%", left: "50%" },
   },
   {
-    title: "Desenvolvedor Full Stack",
-    job: "Estágiario na Procuradoria Geral do Paraná",
-    date: "2025 – Presente",
-    contents: [
-      "Desenvolvimento de soluções Full Stack modernas utilizando Python (FastAPI) no backend e React no frontend.",
-      "Criação de robôs de automação e Web Scrapers de alta complexidade com N8N e Selenium.",
-      "Implementação de Agentes de IA para otimização de processos de negócio.",
-      "Gerenciamento de infraestrutura e deploy utilizando Docker.",
-    ],
+    id: "tdd",
+    key: "tdd",
+    style: { rotate: "-15deg", top: "58%", left: "4%" },
+  },
+  {
+    id: "specDriven",
+    key: "specDriven",
+    style: { rotate: "20deg", bottom: "16%", left: "42%" },
+  },
+  {
+    id: "designPatterns",
+    key: "designPatterns",
+    style: { rotate: "-10deg", bottom: "32%", left: "70%" },
   },
 ];
 
-export const reviews = [
+export const techLogos = [
   {
-    name: "Maria Silva",
-    username: "@maria",
-    body: "Ricardo demonstrou excelente conhecimento técnico e dedicação no desenvolvimento de soluções web.",
-    img: "https://robohash.org/maria",
+    id: "react",
+    name: "React",
+    image: "assets/logos/react.png",
+    style: { rotate: "20deg", top: "10%", left: "43%" },
   },
   {
-    name: "João Santos",
-    username: "@joao",
-    body: "Profissional comprometido com resultados e sempre em busca de aprendizado contínuo.",
-    img: "https://robohash.org/joao",
+    id: "python",
+    name: "Python",
+    image: "assets/logos/python.svg",
+    style: { rotate: "30deg", top: "70%", left: "70%" },
   },
   {
-    name: "Ana Costa",
-    username: "@ana",
-    body: "Trabalho de qualidade e atenção aos detalhes. Recomendo seus serviços de desenvolvimento.",
-    img: "https://robohash.org/ana",
+    id: "typescript",
+    name: "TypeScript",
+    image: "assets/logos/typescript_original_logo_icon_146317.svg",
+    style: { rotate: "-40deg", top: "72%", left: "22%" },
   },
   {
-    name: "Pedro Lima",
-    username: "@pedro",
-    body: "Excelente desenvolvedor, sempre entrega projetos dentro do prazo e com alta qualidade.",
-    img: "https://robohash.org/pedro",
+    id: "nest",
+    name: "NestJS",
+    image: "assets/logos/Nest.js.png",
+    style: { rotate: "25deg", top: "45%", left: "82%" },
   },
   {
-    name: "Carla Oliveira",
-    username: "@carla",
-    body: "Ricardo tem um domínio impressionante das tecnologias que utiliza. Profissional exemplar.",
-    img: "https://robohash.org/carla",
+    id: "n8n",
+    name: "n8n",
+    image: "assets/logos/n8n.svg",
+    style: { rotate: "-45deg", top: "5%", left: "10%" },
   },
   {
-    name: "Lucas Ferreira",
-    username: "@lucas",
-    body: "Comunicação clara e soluções eficientes. Ótima experiência trabalhando com ele.",
-    img: "https://robohash.org/lucas",
+    id: "docker",
+    name: "Docker",
+    image: "assets/logos/docker.svg",
+    style: { rotate: "-25deg", top: "15%", left: "70%" },
   },
 ];
