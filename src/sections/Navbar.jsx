@@ -1,85 +1,59 @@
-import React, { useState } from "react";
-import { motion } from "motion/react"; // NÃO SEI PQ TA ERRADO MAS TA FUNCIONANDO!!
-import { useLanguage } from "../contexts/LanguageContext";
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { useLanguage } from "../contexts/language";
 import { translations } from "../translations/translations";
 import LanguageToggle from "../components/LanguageToggle";
+import { assetUrl } from "../lib/assets";
 
-function Navigation() {
+function Navigation({ onNavigate }) {
   const { language } = useLanguage();
   const t = translations[language];
-
   return (
     <ul className="nav-ul">
-      <li className="nav-li">
-        <a className="nav-link" href="#home">
-          {t.nav.home}
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#about">
-          {t.nav.about}
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#work">
-          {t.nav.work}
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#contact">
-          {t.nav.contact}
-        </a>
-      </li>
-      <li className="nav-li ml-2">
-        <LanguageToggle />
-      </li>
+      {[["home", "home"], ["about", "about"], ["work", "work"], ["contact", "contact"]].map(([id, label]) => (
+        <li key={id} className="nav-li"><a className="nav-link rounded-sm focus-visible:outline-2 focus-visible:outline-lavender" href={`#${id}`} onClick={onNavigate}>{t.nav[label]}</a></li>
+      ))}
+      <li className="nav-li ml-2"><LanguageToggle /></li>
     </ul>
   );
 }
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const buttonRef = useRef(null);
+  const reducedMotion = useReducedMotion();
+  const { language } = useLanguage();
+  const t = translations[language].nav;
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 640px)");
+    const closeDesktop = () => { if (desktop.matches) setOpen(false); };
+    const escape = (event) => {
+      if (event.key === "Escape" && open) { setOpen(false); buttonRef.current?.focus(); }
+    };
+    desktop.addEventListener("change", closeDesktop);
+    document.addEventListener("keydown", escape);
+    return () => { desktop.removeEventListener("change", closeDesktop); document.removeEventListener("keydown", escape); };
+  }, [open]);
+  function navigate(event) {
+    setOpen(false);
+    const target = document.querySelector(event.currentTarget.hash);
+    if (target) { target.setAttribute("tabindex", "-1"); target.focus({ preventScroll: true }); }
+  }
   return (
-    <div className="fixed inset-x-0 top-0 z-20 w-full backdrop-blur-lg bg-primary/40">
+    <header className="fixed inset-x-0 top-0 z-50 w-full backdrop-blur-lg bg-primary/40">
       <div className="mx-auto c-space max-w-7xl">
         <div className="flex items-center justify-between py-2 sm:py-0">
-          <a
-            className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
-            href=""
-          >
-            MFRICKS
-          </a>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
-          >
-            <img
-              src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
-              className="w-6 h-6"
-              alt="toggle"
-            ></img>
+          <a className="text-xl font-bold transition-colors text-neutral-400 hover:text-white rounded-sm focus-visible:outline-2 focus-visible:outline-lavender" href="#home">MFRICKS</a>
+          <button ref={buttonRef} type="button" onClick={() => setOpen((previous) => !previous)} aria-label={open ? t.closeMenu : t.openMenu} aria-expanded={open} aria-controls="mobile-navigation"
+            className="flex min-h-11 min-w-11 items-center justify-center cursor-pointer text-neutral-400 hover:text-white rounded-sm focus-visible:outline-2 focus-visible:outline-lavender sm:hidden">
+            <img src={assetUrl(open ? "assets/close.svg" : "assets/menu.svg")} className="w-6 h-6" alt="" />
           </button>
-          <nav className="hidden sm:flex w-full justify-end">
-            <Navigation />
-          </nav>
+          <nav aria-label={language === "pt" ? "Navegação principal" : "Main navigation"} className="hidden sm:flex w-full justify-end"><Navigation /></nav>
         </div>
       </div>
-      {isOpen && (
-        <motion.div
-          className="block overflow-hidden text-center sm:hidden"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          style={{ maxHeight: "180vh" }}
-          transition={{ duration: 1 }}
-        >
-          <nav className="pb-5">
-            <Navigation />
-          </nav>
-        </motion.div>
-      )}
-    </div>
+      <div id="mobile-navigation" hidden={!open} className="sm:hidden">
+        {open ? <motion.nav aria-label={language === "pt" ? "Navegação móvel" : "Mobile navigation"} className="pb-5 overflow-hidden text-center" initial={reducedMotion ? false : { opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }}><Navigation onNavigate={navigate} /></motion.nav> : null}
+      </div>
+    </header>
   );
-};
-
-export default Navbar;
+}
