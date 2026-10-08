@@ -1,85 +1,55 @@
-"use client";
-import React, { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "motion/react";
+import { usePageVisible } from "../hooks/usePageVisible";
 import { twMerge } from "tailwind-merge";
 
 export const FlipWords = ({ words, duration = 3000, className }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref);
+  const visible = usePageVisible();
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // thanks for the fix Julian - https://github.com/Julian-AT
+  useEffect(() => {
+    if (!words.includes(currentWord)) {
+      setCurrentWord(words[0]);
+    }
+  }, [words, currentWord]);
+
   const startAnimation = useCallback(() => {
-    const word = words[words.indexOf(currentWord) + 1] || words[0];
+    const currentIndex = words.indexOf(currentWord);
+    const nextIndex = (currentIndex + 1) % words.length;
+    const word = words[nextIndex] || words[0];
     setCurrentWord(word);
     setIsAnimating(true);
   }, [currentWord, words]);
 
   useEffect(() => {
-    if (!isAnimating)
-      setTimeout(() => {
+    if (!isAnimating && inView && visible) {
+      const timer = setTimeout(() => {
         startAnimation();
       }, duration);
-  }, [isAnimating, duration, startAnimation]);
+      return () => clearTimeout(timer);
+    }
+  }, [isAnimating, duration, startAnimation, inView, visible]);
 
   return (
-    <AnimatePresence
-      onExitComplete={() => {
-        setIsAnimating(false);
-      }}
-    >
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 10,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 10,
-        }}
-        exit={{
-          opacity: 0,
-          y: -40,
-          x: 40,
-          filter: "blur(8px)",
-          scale: 2,
-          position: "absolute",
-        }}
-        className={twMerge("z-10 block relative text-center", className)}
-        key={currentWord}
+    <span ref={ref} className="inline-block relative min-h-[1.2em] sm:min-h-[1.3em] max-w-full overflow-visible align-top">
+      <AnimatePresence
+        mode="wait"
+        onExitComplete={() => setIsAnimating(false)}
       >
-        {currentWord.split(" ").map((word, wordIndex) => (
-          <motion.span
-            key={word + wordIndex}
-            initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{
-              delay: wordIndex * 0.3,
-              duration: 0.3,
-            }}
-            className="block text-center md:inline md:text-left whitespace-nowrap"
-          >
-            {word.split("").map((letter, letterIndex) => (
-              <motion.span
-                key={word + letterIndex}
-                initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{
-                  delay: wordIndex * 0.3 + letterIndex * 0.05,
-                  duration: 0.2,
-                }}
-                className="inline-block"
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </motion.span>
-        ))}
-      </motion.div>
-    </AnimatePresence>
+        <motion.span
+          key={currentWord}
+          initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className={twMerge("inline-block break-words text-balance max-w-full", className)}
+        >
+          {currentWord}
+        </motion.span>
+      </AnimatePresence>
+    </span>
   );
 };

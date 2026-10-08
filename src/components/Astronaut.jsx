@@ -6,33 +6,28 @@ Source: https://sketchfab.com/3d-models/tenhun-falling-spaceman-fanart-9fd80b6a2
 Title: Tenhun Falling spaceman (FanArt)
 */
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { useMotionValue, useSpring } from "motion/react";
+import { useSpring } from "motion/react";
+import { assetUrl } from "../lib/assets";
 import { useFrame } from "@react-three/fiber";
 
-export function Astronaut(props) {
+export function Astronaut({ active, ...props }) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(
-    `${
-      import.meta.env.BASE_URL
-    }assets/models/tenhun_falling_spaceman_fanart.glb`
+    assetUrl("assets/models/tenhun_falling_spaceman_fanart.glb")
   );
-  const { actions } = useAnimations(animations, group);
+  const { actions, mixer } = useAnimations(animations, group);
+  useEffect(() => { mixer.timeScale = active ? 1 : 0; }, [active, mixer]);
   useEffect(() => {
     if (animations.length > 0) {
       actions[animations[0].name]?.play();
     }
   }, [actions, animations]);
 
-  const yPosition = useMotionValue(5);
-  const ySpring = useSpring(yPosition, { damping: 30 });
-  useEffect(() => {
-    ySpring.set(-1);
-  }, [ySpring]);
-  useFrame(() => {
-    group.current.position.y = ySpring.get();
-  });
+  const ySpring = useSpring(5, { damping: 30 });
+  useEffect(() => { ySpring.set(-1); }, [ySpring]);
+  useFrame(() => { if (group.current) group.current.position.y = ySpring.get(); });
 
   return (
     <group
@@ -129,7 +124,3 @@ export function Astronaut(props) {
     </group>
   );
 }
-
-useGLTF.preload(
-  `${import.meta.env.BASE_URL}assets/models/tenhun_falling_spaceman_fanart.glb`
-);

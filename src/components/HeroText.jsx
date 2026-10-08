@@ -1,118 +1,59 @@
 import { FlipWords } from "./FlipWords";
-import { motion } from "motion/react";
-import { useLanguage } from "../contexts/LanguageContext";
+import { motion as Motion } from "motion/react";
+import { useLanguage } from "../contexts/language";
 import { translations } from "../translations/translations";
+
+const wordsPt = [
+  "Interfaces Fluidas",
+  "APIs Escaláveis",
+  "Fluxos Automatizados",
+  "Sistemas com IA",
+  "Arquiteturas Robustas",
+];
+
+const wordsEn = [
+  "Fluid Interfaces",
+  "Scalable APIs",
+  "Automated Workflows",
+  "AI-Powered Systems",
+  "Robust Architectures",
+];
+
+const variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
 
 const HeroText = () => {
   const { language } = useLanguage();
   const t = translations[language];
-
-  const words =
-    language === "pt"
-      ? ["Python", "React", "N8N", "FastAPIs"]
-      : ["Python", "React", "N8N"];
-
-  const variants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 },
-  };
+  const words = language === "pt" ? wordsPt : wordsEn;
 
   return (
-    <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text relative">
-      {/*Desktop view */}
-      <div className="flex-col mt-28 hidden md:flex c-space">
-        <motion.h1
-          className="text-4xl font-medium"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1 }}
-        >
+    <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl relative w-full max-w-full drop-shadow-[0_8px_24px_rgba(0,0,0,0.95)]">
+      <div className="flex flex-col w-full max-w-full px-2 sm:px-0 md:mt-28 md:px-10 lg:px-15">
+        <Motion.h1
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] tracking-tight"
+          variants={variants} initial="hidden" animate="visible" transition={{ delay: 1 }}>
           {t.hero.title}
-        </motion.h1>
-        <div className="flex flex-col items-start">
-          <motion.p
-            className="text-5xl font-medium text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.2 }}
-          >
-            {t.hero.subtitle} <br />
-            {t.hero.building}
-          </motion.p>
-          <motion.div
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.5 }}
-          >
-            <FlipWords
-              words={words}
-              className="font-black text-white text-5xl"
-            />
-          </motion.div>
-          <motion.p
-            className="text-4xl font-medium text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.8 }}
-          >
-            {t.hero.closing}
-          </motion.p>
-        </div>
-      </div>
-      {/*Mobile view */}
-      <div className="flex flex-col space-y-6 md:hidden">
-        <motion.p
-          className="text-4xl font-medium"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1 }}
-        >
-          {t.hero.title}
-        </motion.p>
-        <motion.p
-          className="text-5xl font-medium text-neutral-300"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.1 }}
-        >
+        </Motion.h1>
+        <Motion.p
+          className="mt-4 sm:mt-6 md:mt-0 text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          variants={variants} initial="hidden" animate="visible" transition={{ delay: 1.2 }}>
           {t.hero.subtitle}
-        </motion.p>
-        <motion.p
-          className="text-5xl font-medium text-neutral-300"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.15 }}
-        >
+        </Motion.p>
+        <Motion.p
+          className="mt-4 sm:mt-6 md:mt-1 text-2xl sm:text-3xl md:text-5xl font-bold text-neutral-100 tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          variants={variants} initial="hidden" animate="visible" transition={{ delay: 1.3 }}>
           {t.hero.building}
-        </motion.p>
-        <div>
-          <motion.div
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.5 }}
-          >
-            <FlipWords
-              words={words}
-              className="font-bold text-white text-7xl"
-            />
-          </motion.div>
-          <motion.p
-            className="text-4xl font-black text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.8 }}
-          >
-            {t.hero.closing}
-          </motion.p>
+        </Motion.p>
+        <div className="mt-4 sm:mt-6 md:mt-2 min-h-[2.6em] sm:min-h-[1.5em] md:min-h-[1.3em] flex items-center justify-center md:justify-start w-full max-w-full overflow-hidden md:overflow-visible">
+          <Motion.div
+            variants={variants} initial="hidden" animate="visible" transition={{ delay: 1.5 }}
+            className="w-full max-w-full md:w-auto">
+            <FlipWords words={words}
+              className="font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-purple-300 text-3xl sm:text-5xl drop-shadow-[0_2px_14px_rgba(192,132,252,0.45)]" />
+          </Motion.div>
         </div>
       </div>
     </div>
