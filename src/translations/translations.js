@@ -197,8 +197,8 @@ export const translations = {
       errorMessage:
         "Não foi possível enviar sua mensagem. Seus dados foram mantidos; tente novamente.",
       placeholders: {
-        name: "Seu nome",
-        email: "voce@exemplo.com",
+        name: "Peter Parker",
+        email: "notspidey@email.com",
         message: "Conte sobre a oportunidade ou o projeto…",
       },
     },
@@ -412,8 +412,8 @@ export const translations = {
       errorMessage:
         "Your message could not be sent. Your details have been kept; please try again.",
       placeholders: {
-        name: "Your name",
-        email: "you@example.com",
+        name: "Peter Parker",
+        email: "notspidey@email.com",
         message: "Tell me about the opportunity or project…",
       },
     },
