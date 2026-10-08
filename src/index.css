@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "./";
+@source "../tests/ui/fixture.jsx";
 @theme {
   --color-primary: #030412;
   --color-midnight: #06091f;
@@ -14,6 +15,8 @@
   --color-orange: #cc6033;
   --color-sand: #d6995c;
   --color-coral: #ea4884;
+}
+@theme inline {
   --animate-orbit: orbit 50s linear infinite;
   @keyframes orbit {
     0% {
@@ -24,26 +27,6 @@
       transform: rotate(calc(var(--angle) * 1deg + 360deg))
         translateY(calc(var(--radius) * 1px))
         rotate(calc((var(--angle) * -1deg) - 360deg));
-    }
-  }
-  --animate-marquee: marquee 50s linear infinite;
-  --animate-marquee-vertical: marquee-vertical 50s linear infinite;
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
-
-  @keyframes marquee-vertical {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(calc(-100% - var(--gap)));
     }
   }
 }
@@ -58,14 +41,38 @@ body {
 }
 html {
   scroll-padding-top: 56px;
+  color-scheme: dark;
+}
+
+html,
+.project-dialog {
+  scrollbar-width: thin;
+  scrollbar-color: #48405f transparent;
+}
+
+html::-webkit-scrollbar,
+.project-dialog::-webkit-scrollbar {
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track,
+.project-dialog::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb,
+.project-dialog::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #48405f;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+.project-dialog::-webkit-scrollbar-thumb:hover {
+  background: #7a57db;
 }
 
 .c-space {
   @apply sm:px-10 px-5 lg:px-15;
-}
-
-.hover-animation {
-  @apply hover:-translate-y-1 duration-200;
 }
 
 .section-spacing {
@@ -96,14 +103,10 @@ html {
 .nav-link {
   @apply text-lg md:text-base hover:text-white transition-colors;
 }
-/* Button Components */
-.btn {
-  @apply relative px-1 py-4 text-sm text-center rounded-full font-extralight bg-primary w-[12rem] cursor-pointer overflow-hidden;
-}
 
 /* About Section */
 .grid-1 {
-  @apply row-span-2 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+  @apply row-span-2 md:col-span-3 min-h-[15rem] h-auto md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
 }
 .grid-2 {
   @apply row-span-1 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
@@ -115,7 +118,7 @@ html {
   @apply row-span-1 md:col-span-2 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
 }
 .grid-5 {
-  @apply row-span-1 md:col-span-4 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+  @apply row-span-1 md:col-span-4 min-h-[15rem] h-auto md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
 }
 
 .grid-default-color {
@@ -135,7 +138,7 @@ html {
 }
 
 .field-input {
-  @apply w-full min-h-10 rounded-md px-3 py-2 text-sm bg-white/10 transition duration-200 placeholder-neutral-500 border border-white/10 mt-2;
+  @apply w-full min-h-11 rounded-md px-3 py-2 text-sm bg-white/10 transition duration-200 placeholder-neutral-400 border border-white/10 mt-2;
 }
 
 .field-input-focus {
@@ -157,4 +160,10 @@ html {
       opacity: 0;
     }
   }
+}
+
+.skip-link { @apply fixed top-2 left-2 z-50 rounded-lg bg-royal px-4 py-3 text-white; transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
 }
